@@ -13,6 +13,7 @@ N = length(s);
 t = [0:N-1]*dt;
 f = linspace(0,1/dt/2,N/2);
 ```
+![S](img/s.png)
 ### Windowed Signal 
 ```matlab
 S = repmat(s,1,N);
@@ -23,7 +24,7 @@ imagesc(S)
 imagesc(W)
 imagesc(W.*S)
 ```
-
+![WS](img/ws.png)
 ### Time-Frequency Representation Using Chirp Rate
 ```matlab
 TF = fft(W.*S);
@@ -39,6 +40,7 @@ Wp  = diag(1./sw) * Wp;
 TFp = fft( Wp .* S );
 TFRp = abs(TFp);
 ```
+![IF](img/if.png)
 ### Figures
 ```matlab
 imagesc(t,f,TFR(fix(N/2)+1:end,:))
@@ -47,7 +49,7 @@ imagesc(t,f,TFRp(fix(N/2)+1:end,:))
 xlabel Time(s)
 ylabel Frequency(Hz)
 ```
-
+![TF](img/tf.png)
 ### Inverse of The Transform
 
 ```matlab
