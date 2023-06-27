@@ -12,7 +12,9 @@ cr=Signals.ExpChip3C.cr;
 N = length(s);
 t = [0:N-1]*dt;
 f = linspace(0,1/dt/2,N/2);
-Windowed Signal 
+```
+### Windowed Signal 
+```matlab
 S = repmat(s,1,N);
 sd = 1./sqrt(2*pi*abs(cr))/dt;
 W = WinMtx( N,sd );
@@ -26,7 +28,9 @@ imagesc(W.*S)
 ```matlab
 TF = fft(W.*S);
 TFR = abs(TF);
-Weighted Time-Frequency representation
+```
+### Weighted Time-Frequency representation
+```matlab
 beta = .04;
 wt = TFR.^ beta;
 Wp = abs(ifft(wt .* TF) ./ (S + eps));
@@ -34,7 +38,9 @@ sw = sum(Wp,2);
 Wp  = diag(1./sw) * Wp;
 TFp = fft( Wp .* S );
 TFRp = abs(TFp);
-Figures
+```
+### Figures
+```matlab
 imagesc(t,f,TFR(fix(N/2)+1:end,:))
 plot(cr);axis tight
 imagesc(t,f,TFRp(fix(N/2)+1:end,:))
