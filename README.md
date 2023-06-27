@@ -2,32 +2,9 @@
 ## Weighted Time-Frequency Representation
 ### A 3-components exponential chirp signal
 
-### Windowed Signal 
-
-Time-Frequency Representation Using Chirp Rate
 
 ```matlab
 % [...]
-
-function fun1
-  % call helpFun1 here
-end
-
-function fun2
-  % call helpFun2 here
-end
-
-function helpFun1
-   % [...]
-end
-
-function helpFun2
-   % [...]
-end
-
-% [...
-Weigthed Short-Time Fourier Transform
-A 3-components exponential chirp signal
 clc,clear
 load SignalsTypes
 dt=Signals.ExpChip3C.dt;
@@ -44,7 +21,12 @@ figure;colormap gray
 imagesc(S)
 imagesc(W)
 imagesc(W.*S)
-Time-Frequency Representation Using Chirp Rate
+
+% [...
+
+### Time-Frequency Representation Using Chirp Rate
+```matlab
+% [...]
 TF = fft(W.*S);
 TFR = abs(TF);
 Weighted Time-Frequency representation
@@ -61,8 +43,16 @@ plot(cr);axis tight
 imagesc(t,f,TFRp(fix(N/2)+1:end,:))
 xlabel Time(s)
 ylabel Frequency(Hz)
-Inverse of The Transform
+
+% [...
+
+### Inverse of The Transform
+
+% [...]
 si = real(sum(ifft(TFp),2))';
 plot(t,s,t,si)
 sa=ifft(TF);
 imagesc(unwrap(angle(sa),pi,1))
+
+% [...
+
