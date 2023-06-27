@@ -4,7 +4,6 @@
 
 
 ```matlab
-% [...]
 clc,clear
 load SignalsTypes
 dt=Signals.ExpChip3C.dt;
@@ -21,12 +20,10 @@ figure;colormap gray
 imagesc(S)
 imagesc(W)
 imagesc(W.*S)
-
-% [...
+```
 
 ### Time-Frequency Representation Using Chirp Rate
 ```matlab
-% [...]
 TF = fft(W.*S);
 TFR = abs(TF);
 Weighted Time-Frequency representation
@@ -43,16 +40,14 @@ plot(cr);axis tight
 imagesc(t,f,TFRp(fix(N/2)+1:end,:))
 xlabel Time(s)
 ylabel Frequency(Hz)
-
-% [...
+```
 
 ### Inverse of The Transform
 
-% [...]
+```matlab
 si = real(sum(ifft(TFp),2))';
 plot(t,s,t,si)
 sa=ifft(TF);
 imagesc(unwrap(angle(sa),pi,1))
-
-% [...
+```
 
